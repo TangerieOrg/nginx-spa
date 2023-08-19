@@ -1,0 +1,14 @@
+name: Production Build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: TangerieOrg/Workflows/.github/workflows/docker-build-push-noargs.yml@main
+    with:
+      image_name: nginx-spa
+      registry_name: docker.tangerie.xyz
+    secrets: inherit
